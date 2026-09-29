@@ -4,19 +4,19 @@ const postSchema = new mongoose.Schema(
     {
         title : {
             type : String,
-            require : true,
+            required : true,
             trim : true,
             minlength : 5,
             maxlength : 100
         },
         content : {
             type: String,
-            require : true,
+            required : true,
             trim : true
         },
         author : {
             type : String,
-            require : true,
+            required : true,
             trim : true
         },
         likes : [{

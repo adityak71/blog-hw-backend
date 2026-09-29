@@ -4,12 +4,19 @@ exports.createPost = async (req, res)=>{
     try {
         const {title, content, author} = req.body;
 
+        if (!title || !content || !author) {
+            return res.status(400).json({
+                success: false,
+                message: 'title, content, and author are required'
+            });
+        }
+        
         const response = await Posts.create({title, content, author});
 
-        res.status(200).json({
+        res.status(201).json({
             success : true,
             data : response,
-            mesage : "Post Added Successfully"
+            message : "Post Added Successfully"
         })
     } catch (error) {
         console.log(error);

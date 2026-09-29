@@ -6,16 +6,16 @@ const commentSchema = mongoose.Schema(
         post : {
             type : mongoose.Schema.Types.ObjectId,
             ref : 'Posts',
-            require : true
+            required : true
         },
         author : {
             type : String,
-            require : true,
+            required : true,
             trim : true
         },
         text : {
             type : String,
-            require : true,
+            required : true,
             trim : true,
             maxlength : 100
         }

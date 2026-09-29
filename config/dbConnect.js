@@ -2,9 +2,13 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const db_url = process.env.DB_URL;
-const dbconnect = () =>{
+const dbconnect = async () =>{
 
-    mongoose.connect(db_url)
+    if(!db_url){
+        throw new Error('DB_URL is missing from the .env file');
+    }
+
+    await mongoose.connect(db_url)
     .then(()=>{
         console.log("Databse connected successfuly");
     })
