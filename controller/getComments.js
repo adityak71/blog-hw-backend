@@ -30,7 +30,7 @@ exports.getComments = async(req, res)=> {
 exports.getCommentsById = async (req,res)=>{
     try {
         const id = req.params.id;
-        const response = await Comments.find({_id : id});
+        const response = await Comments.findById({_id : id});
         if(!response){
             return res.status(404).json({
                 success : false,
